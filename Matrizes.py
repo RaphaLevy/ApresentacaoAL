@@ -1,7 +1,5 @@
 import numpy as np
 
-
-
 print("Matrizes da Simulação 1")
 print("A:")
 Sim_1_A = np.matrix('0.07, 0, 0; 0.93, 0.2, 0; 0, 0.8, 1') 

@@ -441,6 +441,60 @@ plt.show()
 
 ##############################################################################
 
+##############################################################################
+
+# Simulacao numero 8, uma simulacao basica do COVID no início da pandemia
+
+# Populacao inicial ficticia.
+N8 = 7822785840 
+
+# Numeros iniciais de infectados e recuperados.
+I8, R8 = 1, 0
+
+# Suscetiveis a contaminacao.
+S8 = N8 - I8 - R8
+
+# Taxas tecnicas.
+beta8, gamma8 = 0.2, 0.64/10 
+
+# Rede de tempo.
+t8 = np.linspace(0, 365, 365)
+
+# Equacoes diferenciais do modelo SIR.
+def deriv(y8, t8, N8, beta8, gamma8):
+    S8, I8, R8 = y8
+    dSdt8 = -beta8 * S8 * I8 / N8
+    dIdt8 = beta8 * S8 * I8 / N8 - gamma8 * I8
+    dRdt8 = gamma8 * I8
+    return dSdt8, dIdt8, dRdt8
+
+# Condicoes inicias do vetor.
+y8 = S8, I8, R8
+
+# Integracao do modelo de equacoes diferenciais do SIR na rede de tempo(t).
+ret8 = odeint(deriv, y8, t8, args=(N8, beta8, gamma8))
+S8, I8, R8 = ret8.T
+
+# Plotando a simulacao.
+fig8 = plt.figure(facecolor='w')
+ax = fig8.add_subplot(111, facecolor='#dddddd', axisbelow=True)
+ax.plot(t8, S8/100000000, 'b', alpha=0.5, lw=2, label='Suscetível')
+ax.plot(t8, I8/100000000, 'r', alpha=0.5, lw=2, label='Infectado')
+ax.plot(t8, R8/100000000, 'g', alpha=0.5, lw=2, label='Recuperado e imune')
+ax.set_xlabel('Tempo /dias')
+ax.set_ylabel('Número (100.000.000ss)')
+ax.set_ylim(0,80)
+ax.yaxis.set_tick_params(length=0)
+ax.xaxis.set_tick_params(length=0)
+ax.grid(b=True, which='major', c='w', lw=2, ls='-')
+legend = ax.legend()
+legend.get_frame().set_alpha(0.5)
+for spine in ('top', 'right', 'bottom', 'left'):
+    ax.spines[spine].set_visible(False)
+plt.show()
+
+##############################################################################
+
 # Bibliografia:
     #https://scipython.com/book/chapter-8-scipy/additional-examples/the-sir-epidemic-model/
     #https://www.ibge.gov.br/apps/populacao/projecao/; 
