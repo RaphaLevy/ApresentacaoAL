@@ -7,6 +7,13 @@ print(Sim_1_A)
 print("U0:")
 Sim_1_U0 = np.matrix('202206486; 5276942; 4721593 ')
 print(Sim_1_U0)
+print(" ")
+print("Uk:")
+Sim_1_Uk = np.dot(Sim_1_A,Sim_1_U0)
+print(Sim_1_Uk)
+print("k->1000")
+power1 = np.dot(Sim_1_A**1000,Sim_1_U0)
+print(power1)
 
 print('#####################################################')
 
@@ -17,6 +24,13 @@ print(Sim_2_A)
 print("U0:")
 Sim_2_U0 = np.matrix('7744985128; 46643798; 31156914 ')
 print(Sim_2_U0)
+print(" ")
+print("Uk:")
+Sim_2_Uk = np.dot(Sim_2_A,Sim_2_U0)
+print(Sim_2_Uk)
+print("k->1000")
+power2 = np.dot(Sim_2_A**1000,Sim_2_U0)
+print(power2)
 
 print('#####################################################')
 
@@ -27,6 +41,13 @@ print(Sim_3_A)
 print("U0:")
 Sim_3_U0 = np.matrix('7744985128; 46643798; 31156914 ')
 print(Sim_3_U0)
+print(" ")
+print("Uk:")
+Sim_3_Uk = np.dot(Sim_3_A,Sim_3_U0)
+print(Sim_3_Uk)
+print("k->1000")
+power3 = np.dot(Sim_3_A**1000,Sim_3_U0)
+print(power3)
 
 print('#####################################################')
 
@@ -37,6 +58,13 @@ print(Sim_4_A)
 print("U0:")
 Sim_4_U0 = np.matrix('234; 1396; 0 ')
 print(Sim_4_U0)
+print(" ")
+print("Uk:")
+Sim_4_Uk = np.dot(Sim_4_A,Sim_4_U0)
+print(Sim_4_Uk)
+print("k->1000")
+power4 = np.dot(Sim_4_A**1000,Sim_4_U0)
+print(power4)
 
 print('#####################################################')
 
@@ -47,6 +75,13 @@ print(Sim_5_A)
 print("U0:")
 Sim_5_U0 = np.matrix('59009; 166521; 0 ')
 print(Sim_5_U0)
+print(" ")
+print("Uk:")
+Sim_5_Uk = np.dot(Sim_5_A,Sim_5_U0)
+print(Sim_5_Uk)
+print("k->1000")
+power5 = np.dot(Sim_5_A**1000,Sim_5_U0)
+print(power5)
 
 print('#####################################################')
 
@@ -57,15 +92,30 @@ print(Sim_7_A)
 print("U0:")
 Sim_7_U0 = np.matrix('7822785839; 1; 0 ')
 print(Sim_7_U0)
+print(" ")
+print("Uk:")
+Sim_7_Uk = np.dot(Sim_7_A,Sim_7_U0)
+print(Sim_7_Uk)
+print("k->1000")
+power7 = np.dot(Sim_7_A**1000,Sim_7_U0)
+print(power7)
 
-res = [[0 for x in range(3)] for y in range(3)]  
+print('#####################################################')
 
-def mult(X,Y):
-# explicit for loops 
-    for i in range(len(X)): 
-        for j in range(len(Y[0])): 
-            for k in range(len(Y)): 
-            # resulted matrix 
-                res[i][j] += X[i][k] * Y[k][j] 
-                print (res) 
+print("Matrizes da Simulação 8")
+print("A:")
+Sim_8_A = np.matrix('0.8, 0, 0; 0.2, 0.36, 0; 0, 0.64, 1')
+print(Sim_8_A)
+print("U0:")
+Sim_8_U0 = np.matrix('7822785839; 1; 0 ')
+print(Sim_8_U0)
+print(" ")
+print("Uk:")
+Sim_8_Uk = np.dot(Sim_8_A,Sim_8_U0)
+print(Sim_8_Uk)
+print("k->1000")
+power8 = np.dot(Sim_8_A**1000,Sim_8_U0)
+print(power8)
+
+
             
